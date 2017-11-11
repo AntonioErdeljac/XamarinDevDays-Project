@@ -31,6 +31,7 @@ const API_ROOT='your-azure-backend.net'
     ...
 }
 ```
+**Run the app**
 
 ```
 cd frontend/ 
