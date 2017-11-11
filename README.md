@@ -30,7 +30,4 @@ npm start
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* This was an assigment for a part time job offer
 
