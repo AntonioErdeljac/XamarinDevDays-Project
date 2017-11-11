@@ -6,7 +6,7 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const getBody = res => res.body;
 
-const API_ROOT = 'https://gorankaracic-rijekadevdays.azurewebsites.net';
+const API_ROOT = 'YOUR_API_ROOT';
 
 const requests = {
     get: url =>
