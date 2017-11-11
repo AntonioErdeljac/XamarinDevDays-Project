@@ -69,9 +69,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
         if(message.text.split(' ')[1] === 'izbriši') {
             var channel = "#general";
             rtm.sendMessage("Brišem *"+message.text.split(' ')[2]+'*' , message.channel);
-
-
-
+            
 
             agenda.jobs({}, function(err, jobs){
                 jobs.map(function(job){

@@ -1,20 +1,15 @@
 import {createStore, applyMiddleware, combineReducers} from "redux";
-import {promiseMiddleware, userStatusMiddleware} from "./middleware";
+import {promiseMiddleware} from "./middleware";
 
 //store kao zasebna datoteka radi preglednosti, spaja sve reducere, primjenjuje Middlewareove
 
-import auth from "./reducers/auth";
-import jobs from "./reducers/jobs";
-import common from "./reducers/common";
-import editor from "./reducers/editor";
+import speakers from "./reducers/speakers";
+
 
 const reducer = combineReducers({
-    auth,
-    jobs,
-    common,
-    editor
+    speakers
 });
 
-const store = createStore(reducer, applyMiddleware(promiseMiddleware, userStatusMiddleware));
+const store = createStore(reducer, applyMiddleware(promiseMiddleware));
 
 export default store;
