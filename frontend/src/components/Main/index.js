@@ -5,7 +5,23 @@ import {Link} from "react-router-dom";
 
 //Na componentDidMount fetchamo sve poslove
 
-const Modal = props => {
+class Modal extends React.Component {
+    constructor(props){
+        super(props);
+
+        this.state={
+            username: '',
+            avatar: '',
+            description: ''
+        }
+
+        this.handleSubmit = ev => {
+            ev.preventDefault();
+
+            this.props.onSubmitForm({Name: this.state.username, Avatar: this.state.avatar, Description: this.state.description})
+        }
+    }
+    render(){
     return (
       <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
@@ -17,13 +33,16 @@ const Modal = props => {
               </button>
             </div>
             <div className="modal-body">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <fieldset>
                         <fieldset className="form-group">
-                            <input placeholder="Username" className="form-control"/>
+                            <input placeholder="Username" value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} className="form-control"/>
                         </fieldset>
                         <fieldset className="form-group">
-                            <input placeholder="Picture" className="form-control"/>
+                            <input placeholder="Description" value={this.state.description} onChange={ev => this.setState({description: ev.target.value})} className="form-control"/>
+                        </fieldset>
+                        <fieldset className="form-group">
+                            <input placeholder="Picture" value={this.state.avatar} onChange={ev => this.setState({avatar: ev.target.value})} className="form-control"/>
                         </fieldset>
                         <fieldset className="form-group">
                             <button className="btn btn-primary">Save</button>
@@ -35,6 +54,7 @@ const Modal = props => {
         </div>
       </div>
     );
+}
 }
 
 class Main extends React.Component{
@@ -59,7 +79,7 @@ class Main extends React.Component{
             }
         return(
             <div className="container my-3">
-                <Modal />
+                <Modal onSubmitForm={this.props.onSubmitForm} />
                 <div className="col-12 col-md-2 offset-md-5">
                 <button data-toggle="modal" data-target="#exampleModal" className="btn btn-primary form-control"><i className="fa fa-plus" />&nbsp;Add new</button>
                 </div>
@@ -106,7 +126,9 @@ const mapDispatchToProps = dispatch => ({
     onLoad: payload =>
         dispatch({type: 'MAIN_PAGE_LOADED', payload}),
     onDelete: id =>
-        dispatch({type: 'DELETE_SPEAKER', id, payload: agent.Speakers.del(id)})
+        dispatch({type: 'DELETE_SPEAKER', id, payload: agent.Speakers.del(id)}),
+    onSubmitForm: speaker =>
+        dispatch({type: 'ADD_SPEAKER', payload: agent.Speakers.post(speaker)})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

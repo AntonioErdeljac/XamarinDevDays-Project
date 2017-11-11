@@ -4,11 +4,6 @@ const promiseMiddleware = store => next => action => {
             res => {
                 action.payload = res;
                 store.dispatch(action);
-            },
-            error => {
-                action.error = true;
-                action.payload = error.response.body;
-                store.dispatch(action);
             }
         );
         return;

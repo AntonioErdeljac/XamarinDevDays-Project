@@ -11,6 +11,12 @@ export default (state={}, action) => {
                 ...state,
                 speakers: state.speakers.filter(speaker => speaker.id !== action.id)
             };
+        case 'ADD_SPEAKER':
+        console.log(action.payload, 'NOVI SPEAKER');
+            return {
+                ...state,
+                speakers: ([action.payload]).concat(state.speakers || [])
+            };
     }
     return state;
 };

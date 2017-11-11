@@ -2,6 +2,9 @@
 
 Frontend created for an API that was supposed to be for mobile app.
 
+### Final Result:
+![](https://im5.ezgif.com/tmp/ezgif-5-b0a1025e4b.gif)
+
 ### Prerequisites
 
 * Node.js
