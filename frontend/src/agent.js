@@ -6,7 +6,7 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const getBody = res => res.body;
 
-const API_ROOT = 'api_root';
+const API_ROOT = 'YOUR_AZURE_API_HERE';
 
 const requests = {
     get: url =>

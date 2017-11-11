@@ -6,10 +6,20 @@ Frontend created for an API that was supposed to be for mobile app.
 
 * Node.js
 * npm
+* Azure generated backend
 
 ## Running the app
 
 **Make sure that you have CORS Enabled either using an extension or any other way**
+
+**Make sure that your Backend returns body like this:**
+```
+{
+    Name: 'Test',
+    Avatar: 'test.png',
+    ...
+}
+```
 
 ```
 cd frontend/ 
