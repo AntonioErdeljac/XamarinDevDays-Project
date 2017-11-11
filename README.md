@@ -15,6 +15,8 @@ Frontend created for an API that was supposed to be for mobile app.
 
 **Make sure that you have CORS Enabled either using an extension or any other way**
 
+**Make sure that you do the necessary changes:**
+
 In **agent.js**:
 ```
 const API_ROOT='your-azure-backend.net'
